@@ -1,7 +1,14 @@
 ﻿#include <iostream>
-
+/*Посчитать, сколько есть вариантов прохождения шахматного коня по всем клеткам*/
 using namespace std;
+<<<<<<< HEAD
+
 const int arrLength = 6;
+int myCount = 0;
+=======
+const int arrLength = 5;
+int MyCount = 0;
+>>>>>>> 40cd3458e27209efce93b09fe4c0a93442550103
 
 void CreateEmptyArr(int arr[arrLength][arrLength])
 {
@@ -27,61 +34,188 @@ void PrintArr(T arr[arrLength][arrLength])
 	}
 	cout << "--------------------------\n";
 }
-void MoveHorse(int chess[arrLength][arrLength], int i, int j, int count = 0)
+<<<<<<< HEAD
+bool CheckArr(int chess[arrLength][arrLength])
+{
+	for (int i = 0; i < arrLength; i++)
+	{
+		for (int j = 0; j < arrLength; j++)
+		{
+			if (chess[i][j] == 0)
+			{
+				return false;
+			}
+		}
+		return true;		
+	}
+}
+void CopyArray(int original[arrLength][arrLength], int copy[arrLength][arrLength])
+{
+	for (int i = 0; i < arrLength; i++)
+	{
+		for (int j = 0; j < arrLength; j++)
+		{
+			copy[i][j] = original[i][j];
+		}
+	}
+}
+
+void MoveHorse(int chess[arrLength][arrLength], int i, int j)
 {
 	chess[i][j] += 1;
-	count++;
-	cout << i << " " << j << endl;
+	
+	if (CheckArr(chess))
+	{
+		myCount++;
+	}
 	
 	if (i + 1 < arrLength && j - 2 > 0 && chess[i + 1][j - 2] == 0)//up right
 	{
-		MoveHorse(chess, i + 1, j - 2, count);
-		return;
+		int copy[arrLength][arrLength];
+		CopyArray(chess, copy);
+		MoveHorse(copy, i + 1, j - 2);		
 	}
-	else if (i + 2 < arrLength && j - 1 >= 0 && chess[i + 2][j - 1] == 0)//right up
+	if (i + 2 < arrLength && j - 1 >= 0 && chess[i + 2][j - 1] == 0)//right up
 	{
-		MoveHorse(chess, i + 2, j - 1, count);
-		return;
+		int copy[arrLength][arrLength];
+		CopyArray(chess, copy);
+		MoveHorse(copy, i + 2, j - 1);		
 	}
-	else if (i + 2 < arrLength && j + 1 < arrLength && chess[i + 2][j + 1] == 0)//right down
+	if (i + 2 < arrLength && j + 1 < arrLength && chess[i + 2][j + 1] == 0)//right down
 	{
-		MoveHorse(chess, i + 2, j + 1, count);
-		return;
+		int copy[arrLength][arrLength];
+		CopyArray(chess, copy);
+		MoveHorse(copy, i + 2, j + 1);		
 	}
-	else if (i + 1 < arrLength && j + 2 < arrLength && chess[i + 1][j + 2] == 0)//down right
+	if (i + 1 < arrLength && j + 2 < arrLength && chess[i + 1][j + 2] == 0)//down right
 	{
-		MoveHorse(chess, i + 1, j + 2, count);
-		return;
+		int copy[arrLength][arrLength];
+		CopyArray(chess, copy);
+		MoveHorse(copy, i + 1, j + 2);		
 	}
-	else if (i - 1 >= 0 && j + 2 < arrLength && chess[i - 1][j + 2] == 0)//down left
+	if (i - 1 >= 0 && j + 2 < arrLength && chess[i - 1][j + 2] == 0)//down left
 	{
-		MoveHorse(chess, i - 1, j + 2, count);
-		return;
+		int copy[arrLength][arrLength];
+		CopyArray(chess, copy);
+		MoveHorse(copy, i - 1, j + 2);		
 	}
-	else if (i - 2 >= 0 && j + 1 < arrLength && chess[i - 2][j + 1] == 0)//left down
+	if (i - 2 >= 0 && j + 1 < arrLength && chess[i - 2][j + 1] == 0)//left down
 	{
-		MoveHorse(chess, i - 2, j + 1, count);
-		return;
+		int copy[arrLength][arrLength];
+		CopyArray(chess, copy);
+		MoveHorse(copy, i - 2, j + 1);		
 	}
-	else if (i - 2 >= 0 && j - 1 >= 0 && chess[i - 2][j - 1] == 0)//left up
+	if (i - 2 >= 0 && j - 1 >= 0 && chess[i - 2][j - 1] == 0)//left up
 	{
-		MoveHorse(chess, i - 2, j - 1, count);
-		return;
+		int copy[arrLength][arrLength];
+		CopyArray(chess, copy);
+		MoveHorse(copy, i - 2, j - 1);		
 	}
-	else if (i - 1 >= 0 && j - 2 >= 0 && chess[i - 1][j - 2] == 0)//up left
+	if (i - 1 >= 0 && j - 2 >= 0 && chess[i - 1][j - 2] == 0)//up left
 	{
-		MoveHorse(chess, i - 1, j - 2, count);
-		return;
+		int copy[arrLength][arrLength];
+		CopyArray(chess, copy);
+		MoveHorse(copy, i - 1, j - 2);		
 	}
-	else
+	
+=======
+
+bool Check(int chess[arrLength][arrLength])
+{
+	for (int i = 0; i < arrLength; i++)
 	{
-		cout << "end. count = " << count << endl;
+		for (int j = 0; j < arrLength; j++)
+		{
+			if (chess[i][j] == 0)
+				return false;
+		}
 	}
+	return true;
+}
+void CopyArr(int original[arrLength][arrLength], int copy[arrLength][arrLength])
+{
+	for (int i = 0; i < arrLength; i++)
+	{
+		for (int j = 0; j < arrLength; j++)
+		{
+			copy[i][j] = original[i][j];
+		}		
+	}
+}
+void MoveHorse(int chess[arrLength][arrLength], int i, int j)
+{
+	chess[i][j] = 1;
+	if (Check(chess))
+	{
+		MyCount++;
+		return;
+	}	
+	
+	if (i + 1 < arrLength && j - 2 >= 0 && chess[i + 1][j - 2] == 0)//up right
+	{
+		int copy[arrLength][arrLength];
+		CopyArr(chess, copy);
+		MoveHorse(copy, i + 1, j - 2);
+	}
+	if (i + 2 < arrLength && j - 1 >= 0 && chess[i + 2][j - 1] == 0)//right up
+	{
+		int copy[arrLength][arrLength];
+		CopyArr(chess, copy);
+		MoveHorse(copy, i + 2, j - 1);		
+	}
+	if (i + 2 < arrLength && j + 1 < arrLength && chess[i + 2][j + 1] == 0)//right down
+	{
+		int copy[arrLength][arrLength];
+		CopyArr(chess, copy);
+		MoveHorse(copy, i + 2, j + 1);		
+	}
+	if (i + 1 < arrLength && j + 2 < arrLength && chess[i + 1][j + 2] == 0)//down right
+	{
+		int copy[arrLength][arrLength];
+		CopyArr(chess, copy);
+		MoveHorse(copy, i + 1, j + 2);		
+	}
+	if (i - 1 >= 0 && j + 2 < arrLength && chess[i - 1][j + 2] == 0)//down left
+	{
+		int copy[arrLength][arrLength];
+		CopyArr(chess, copy);
+		MoveHorse(copy, i - 1, j + 2);		
+	}
+	if (i - 2 >= 0 && j + 1 < arrLength && chess[i - 2][j + 1] == 0)//left down
+	{
+		int copy[arrLength][arrLength];
+		CopyArr(chess, copy);
+		MoveHorse(copy, i - 2, j + 1);		
+	}
+	if (i - 2 >= 0 && j - 1 >= 0 && chess[i - 2][j - 1] == 0)//left up
+	{
+		int copy[arrLength][arrLength];
+		CopyArr(chess, copy);
+		MoveHorse(copy, i - 2, j - 1);		
+	}
+	if (i - 1 >= 0 && j - 2 >= 0 && chess[i - 1][j - 2] == 0)//up left
+	{
+		int copy[arrLength][arrLength];
+		CopyArr(chess, copy);
+		MoveHorse(copy, i - 1, j - 2);
+	}	
+>>>>>>> 40cd3458e27209efce93b09fe4c0a93442550103
 }
 int main()
 {
 	int chessBoard[arrLength][arrLength];
+	int x, y;	
 	CreateEmptyArr(chessBoard);
-	MoveHorse(chessBoard, 0, 0);
-	PrintArr(chessBoard);
+<<<<<<< HEAD
+	int x, y;
+	cout << " enter coordinates\n";
+	cin >> x >> y;
+	MoveHorse(chessBoard, x, y);
+	cout << myCount;
+=======
+	cout << "Enter coordinates. Two numbers < " << arrLength << endl;
+	cin >> x >> y;
+	MoveHorse(chessBoard, x, y);	
+	cout << MyCount << " variants\n";
+>>>>>>> 40cd3458e27209efce93b09fe4c0a93442550103
 }
