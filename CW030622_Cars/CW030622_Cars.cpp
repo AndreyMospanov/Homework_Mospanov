@@ -1,6 +1,6 @@
 ﻿
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <stack>
 using namespace std;
 //марка, пробег, год выпуска, страна, мощность
@@ -14,22 +14,27 @@ class Car
 public:
     void Edit()
     {
+        cin.ignore(1024, '\n');
         cout << "You've created new car.\nEnter car name\n";
-        cin >> name;
+        getline(cin, name);
         cout << "Enter mileage\n";
         cin >> mileage;
         cout << "Enter year\n";
         cin >> year;
+        cin.ignore(1024, '\n');
         cout << "Enter country\n";
-        cin >> country;
+        getline(cin, country);
         cout << "Enter power\n";
         cin >> power;
+        
     }
 
     void Show()
     {
         cout << "name " << name << "\nmileage " << mileage << "\nyear " << year << "\ncountry " << country << "\npower " << power << endl;
     }
+
+    int getYear() { return year; }
 };
 
 int main()
@@ -44,10 +49,23 @@ int main()
         db[i].Edit();
         cout << "-------------\n";        
     }
+    //сортировка по году выпуска от новой к старой
+    for (int i = 0; i < numberOfCars; i++)
+    {
+        for (int j = 0; j < numberOfCars - i - 1; j++)
+        {
+            if (db[i].getYear() > db[j].getYear())
+            {
+                swap(db[i], db[j]);
+            }
+        }
+    }
+    
     cout << "\n\nYou've created " << numberOfCars << " cars in database\n";
     for (int i = 0; i < numberOfCars; i++)
     {
         db[i].Show();
         cout << "-------------\n";
     }
+    
 }
