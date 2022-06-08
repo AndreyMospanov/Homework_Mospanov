@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CW14 Task3", "CW14 Task3\CW
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CW030622_Cars", "CW030622_Cars\CW030622_Cars.vcxproj", "{29C94A91-9674-403B-B372-51E8ACEED2ED}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CW080622_Cash_register", "CW080622_Cash_register\CW080622_Cash_register.vcxproj", "{B2F2EEBF-F6B3-413A-913B-229E20F87204}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{29C94A91-9674-403B-B372-51E8ACEED2ED}.Release|x64.Build.0 = Release|x64
 		{29C94A91-9674-403B-B372-51E8ACEED2ED}.Release|x86.ActiveCfg = Release|Win32
 		{29C94A91-9674-403B-B372-51E8ACEED2ED}.Release|x86.Build.0 = Release|Win32
+		{B2F2EEBF-F6B3-413A-913B-229E20F87204}.Debug|x64.ActiveCfg = Debug|x64
+		{B2F2EEBF-F6B3-413A-913B-229E20F87204}.Debug|x64.Build.0 = Debug|x64
+		{B2F2EEBF-F6B3-413A-913B-229E20F87204}.Debug|x86.ActiveCfg = Debug|Win32
+		{B2F2EEBF-F6B3-413A-913B-229E20F87204}.Debug|x86.Build.0 = Debug|Win32
+		{B2F2EEBF-F6B3-413A-913B-229E20F87204}.Release|x64.ActiveCfg = Release|x64
+		{B2F2EEBF-F6B3-413A-913B-229E20F87204}.Release|x64.Build.0 = Release|x64
+		{B2F2EEBF-F6B3-413A-913B-229E20F87204}.Release|x86.ActiveCfg = Release|Win32
+		{B2F2EEBF-F6B3-413A-913B-229E20F87204}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
