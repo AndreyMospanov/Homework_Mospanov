@@ -9,7 +9,7 @@ class Cashier
     vector <double> sales;
     
 public:
-    bool inMenu = true;
+    
     void PrintMenu()
     {
         cout << "0: exit\n1: new sale\n2: sales list\n3: cancel last sale\n4: show all sales\n5: min & max sale\n";
@@ -18,12 +18,7 @@ public:
     {
         double sale;
         switch (num)
-        {
-        case 0:
-        {
-            inMenu = false;
-            break;
-        }
+        {        
         case 1:
         {
             cout << "New sale: ";
@@ -53,7 +48,7 @@ public:
             {
                 sum += sales[i];
             }
-            cout << "You have done: " << sales.size() + 1 << " sales worth " << sum << "$\n";
+            cout << "You have done: " << sales.size() << " sales worth " << sum << "$\n";
             break;
         }
         case 5:
@@ -82,10 +77,11 @@ int main()
     int chooseMenu;
     saleToday.PrintMenu();
     
-    while (saleToday.inMenu)
+    do
     {
-        cout << " enter number of menu\n";
+        cout << "enter number of menu\n";
         cin >> chooseMenu;
         saleToday.menu(chooseMenu);
-    }
+    } 
+    while (chooseMenu != 0);
 }
