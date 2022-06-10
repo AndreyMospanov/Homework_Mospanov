@@ -18,9 +18,13 @@ public:
         course = 1;
     }
 
-    Student(string name, int age, int id, int course)
+    Student(string new_name, int new_age, int new_id, int new_course)
     {
-        cout << "Student " << name << " created\n";
+        cout << "Student " << new_name << " created\n";
+        name = new_name;
+        age = new_age;
+        id = new_id;
+        course = new_course;
     }
 
     ~Student()
@@ -53,7 +57,7 @@ vector<Student> AddSampleStudents()
     db.push_back(Student("Petya Savin", 16, 2, 1));
     db.push_back(Student("Alex Jones", 23, 3, 5));
     db.push_back(Student("Johan Steinberg", 19, 4, 3));
-    db.push_back(Student("Francois Grenouille", 20, 5, 4));
+    db.push_back(Student("Francois Grenouille", 20, 5, 4));    
     return db;
 }
 int main()
@@ -64,12 +68,7 @@ int main()
     cin >> choice;
     if (choice == 1)
     {        
-        //db = AddSampleStudents();
-        db.push_back(Student("Vasya Vasin", 17, 1, 1));
-        db.push_back(Student("Petya Savin", 16, 2, 1));
-        db.push_back(Student("Alex Jones", 23, 3, 5));
-        db.push_back(Student("Johan Steinberg", 19, 4, 3));
-        db.push_back(Student("Francois Grenouille", 20, 5, 4));
+        db = AddSampleStudents();        
     }
     else
     {
@@ -81,9 +80,10 @@ int main()
             db.at(db.size() - 1).Edit();
         }
     }
-    
+    cout << "--------------------\n";
     for (int i = 0; i < db.size(); i++)
     {
         db[i].Print();
     }
+    cout << "--------------------\n";
 }
