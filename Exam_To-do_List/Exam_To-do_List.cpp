@@ -14,18 +14,21 @@
 using namespace std;
 
 void printMainMenu()
-{    
-    cout << "0. Exit menu\n1. Add case\n2. Delete case\n3. Edit case\n4. Find case\n5. Print list\n";
+{     
+    system("cls");
+    cout << "0. Exit menu\n1. Add case\n2. Delete case\n3. Edit case\n4. Find case\n5. Print list\n6. Add DEMO to-do's\n";
     cout << "enter a number of choice\n";
+    
 }
 
 void printNames(vector<Case> &database)
 {
     for (int i = 0; i < database.size(); i++)
     {
-        cout << i + 1 << ". " << database[i].getName();
+        cout << i + 1 << ". " << database[i].getName() << endl;
     }
     cout << endl;
+    cout << "press 0 to exit in main menu\n";
 }
 
 void findInDB(vector<Case> database, int choice)
@@ -90,7 +93,7 @@ void findInDB(vector<Case> database, int choice)
         SYSTEMTIME toFind;
         cout << "Enter deadline time to find\n year: ";
         cin >> toFind.wYear;
-        cout << "\nmonth ";
+        cout << " month ";
         cin >> toFind.wMonth;
 
         for (int i = 0; i < database.size(); i++)
@@ -104,8 +107,116 @@ void findInDB(vector<Case> database, int choice)
     default:
         break;
     }
+    cout << "press 0 to exit in main menu\n";
+}
+
+void PrintDB(vector<Case> database, int choice)
+{
+    int sort;
+    SYSTEMTIME timeNow;
+    GetLocalTime(&timeNow);
+
+    switch (choice)
+    {
+    //print all
+    case 1:
+    {
+        for (int i = 0; i < database.size(); i++)
+        {
+            database[i].Print();
+        }
+        break;
+    }
+    //print to do this day
+    case 2:
+    {
+        for (int i = 0; i < database.size(); i++)
+        {
+            if (database[i].getDeadline().wYear == timeNow.wYear && database[i].getDeadline().wMonth == timeNow.wMonth && database[i].getDeadline().wDay == timeNow.wDay)
+            {
+                database[i].Print();
+            }            
+        }
+        break;
+    }
+    //print to do this week
+    case 3:
+    {
+        for (int i = 0; i < database.size(); i++)
+        {
+            if (database[i].getDeadline().wYear == timeNow.wYear && database[i].getDeadline().wMonth == timeNow.wMonth && database[i].getDeadline().wDay - timeNow.wDay < 8)
+            {
+                database[i].Print();
+            }
+        }
+        break;
+    }
+    //print to do this month
+    case 4:
+    {
+        for (int i = 0; i < database.size(); i++)
+        {
+            if (database[i].getDeadline().wYear == timeNow.wYear && database[i].getDeadline().wMonth == timeNow.wMonth)
+            {
+                database[i].Print();
+            }
+        }
+        break;
+    }
+    default:
+        break;
+    }
+    //sort cases by priority, deadline
     
-    
+    do
+    {        
+        cout << "sort  1. by priority \n2. by deadline\n0. exit\n";
+        cin >> sort;
+        if (sort == 0)
+        {
+            break;
+        }
+        else if (sort == 1)
+        {
+            for (int i = 0; i < database.size(); i++)
+            {
+                for (int j = 0; j < database.size() - 1; j++)
+                {
+                    if (database[i].getPriority() < database[j].getPriority())
+                    {
+                        Case temp = database[i];
+                        database[i] = database[j];
+                        database[j] = temp;
+                    }
+                }
+            }
+            system("cls");
+            PrintDB(database, choice);            
+        }
+        else if (sort == 2)
+        {
+            for (int i = 0; i < database.size(); i++)
+            {
+                for (int j = 0; j < database.size() - 1; j++)
+                {
+                    if (database[i].getDeadline().wYear >= database[j].getDeadline().wYear)
+                    {
+                        if (database[i].getDeadline().wMonth >= database[j].getDeadline().wMonth)
+                        {
+                            if (database[i].getDeadline().wDay > database[j].getDeadline().wDay)
+                            {
+                                Case temp = database[i];
+                                database[i] = database[j];
+                                database[j] = temp;
+                            }
+                        }
+                    }
+                }
+            }
+            system("cls");
+            PrintDB(database, choice);            
+        }
+    } while (sort < 0 || sort > 2);
 }
 
 int main()
@@ -118,13 +229,17 @@ int main()
     {
         printMainMenu();
         cin >> choice;
+        
+        system("cls");
 
         switch (choice)
         {
+        //exit menu
         case 0:
         {
             break;
         }
+        //add case
         case 1:
         {
             database.push_back(temp);
@@ -134,12 +249,15 @@ int main()
             database.at(database.size() - 1).Print();
             break;
         }
+        //delete case
         case 2:
         {
             int numberToDelete;
             do
-            {                
-                cout << "Choose case to erase\n";
+            {  
+                system("cls");
+                cout << "Choose case to erase\n\n";
+                printNames(database);
                 cin >> numberToDelete;
                 numberToDelete--;
                 if (numberToDelete < database.size())
@@ -153,6 +271,7 @@ int main()
             } while (numberToDelete < database.size());
             break;
         }
+        //edit case
         case 3:
         {
             int numberToEdit;
@@ -164,7 +283,7 @@ int main()
                 numberToEdit--;
                 if (numberToEdit < database.size())
                 {
-                    database.erase(database.begin() + numberToEdit);
+                    database[numberToEdit].Edit();
                 }
                 else
                 {
@@ -173,9 +292,10 @@ int main()
             } while (numberToEdit < database.size());
             break;
         }
+        //Find by
         case 4:
         {     
-            cout << "Find case by\n1. name\n2. priority\n3. description\n4. Deadline\n";
+            cout << "0. Exit\nFind case by\n1. name\n2. priority\n3. description\n4. Deadline\n";
             int choice;            
             do
             {
@@ -193,7 +313,46 @@ int main()
                 {
                     cout << "number of choice is not correct\n";
                 }
-            } while (choice > 0 && choice < 5);            
+            } while (choice > 0 && choice < 5);  
+            break;
+        }
+        //print cases (all/day/week/month)
+        case 5:
+        {
+            int choice;            
+            do
+            {
+                cout << "choose cases to show\n1. all\n2. to do today\n3. to do this week\n4. to do this month\n";
+                cin >> choice;
+                if (choice == 0)
+                {
+                    break;                
+                }
+                else if (choice < 0 && choice > 4)
+                {
+                    cout << "number of choice is not correct\n";
+                }
+            } while (choice < 0 || choice > 4);
+            
+            PrintDB(database, choice);
+            break;
+        }
+        //add DEMO to-do's
+        case 6:
+        {
+            Case temp1("to do something today", 2, "some description", 2022, 6, 14, 20);
+            Case temp2("pass Exam", 1, "pass Exam C++ with two progs & theoretic test", 2022, 6, 15, 22);
+            Case temp3("ride a bike", 3, "ride my bike with somebody", 2022, 6, 20, 16);
+            Case temp4("build PC", 1, "build my new PC", 2022, 6, 18, 12);
+            Case temp5("write programs in C#", 2, "learn & write something new from C#", 2022, 7, 2, 18);
+            Case temp6("play guitar", 3, "learn & write something new from C#", 2022, 7, 5, 22);
+            database.push_back(temp1);
+            database.push_back(temp2);
+            database.push_back(temp3);
+            database.push_back(temp4);
+            database.push_back(temp5);
+            database.push_back(temp6);
+            break;
         }
         }
     } while (choice != 0);
