@@ -7,17 +7,6 @@
 #include <vector>
 
 using namespace std;
-void debug(vector<char> signs, vector<int> nums)
-{
-    for (int i = 0; i < signs.size(); i++)
-    {
-        cout << signs[i] << endl;
-    }
-    for (int i = 0; i < nums.size(); i++)
-    {
-        cout << nums[i] << endl;
-    }
-}
 
 template <typename T>
 T operation(T a, char c, T b)
@@ -52,29 +41,22 @@ int main()
     vector<char> signs;
     bool lastWasNum = false;           //показывает был ли предыдущий член input[i] цифрой
     int temp;
-    cout << "Enter arithmetic expression\n";
-    //cin.ignore(1024, '\n');
+    cout << "Enter arithmetic expression\n";    
     getline(cin, input);
 
     //создаём базу из чисел и знаков
     for (int i = 0; i < input.size(); i++)
     {
-        temp = (int)(input[i]);
-        cout << "int temp = " << temp << endl;
+        temp = (int)(input[i]);       
         if (temp > 47 && temp < 58 && lastWasNum == false)
         {
             nums.push_back(temp - 48);
             lastWasNum = true;
-
-            //debug
-            cout << "LWN = false " << nums[nums.size() - 1] << endl;
         }
         else if (temp > 47 && temp < 58 && lastWasNum == true)
-        {
-            cout << "LWN = true " << temp-48;
+        {            
             nums[nums.size() - 1] *= 10;
-            nums[nums.size() - 1] += temp - 48;
-            cout << "Result xx num" << nums[nums.size() - 1] << endl;
+            nums[nums.size() - 1] += temp - 48;            
         }
         else
         {
@@ -103,8 +85,7 @@ int main()
             }            
             lastWasNum = false;
         }               
-    }
-    debug(signs, nums);
+    }    
     
     //используем входные данные
     
@@ -114,8 +95,7 @@ int main()
         if (signs[i] == '*' || signs[i] == '/')
         {
             temp = operation(nums[i], signs[i], nums[i + 1]);
-            //debug
-            cout << nums[i] << " * " << nums[i + 1] << " = " << temp << endl;
+            
             if (i > 0 && signs[i - 1] == '+')
             {
                 signs.push_back('+');
@@ -130,9 +110,6 @@ int main()
             nums.erase(nums.begin() + i + 1);
             nums.erase(nums.begin() + i);            
             nums.push_back(temp);
-            //debug
-            cout << "debug *\n";
-            debug(signs, nums);
         }
 
     }
@@ -144,12 +121,6 @@ int main()
             if (i == 0)
             {
                 temp = operation(nums[nums.size() - 2], signs[i], nums[nums.size() - 1]);
-
-                //debug
-                cout << "if\n";
-                debug(signs, nums);
-                cout << nums[nums.size() - 2] << signs[i] << nums[nums.size() - 1] << " = " << temp << endl;
-
                 nums.pop_back();
                 nums.pop_back();
                 signs.pop_back();                
@@ -158,18 +129,11 @@ int main()
             }
             else //if (signs[i - 1] != '*' && signs[i - 1] != '/')
             {
-                temp = operation(nums[nums.size() - 2], signs[i], nums[nums.size() - 1]);
-                //debug               
-                cout << "else"  << endl;
-                debug(signs, nums);
-                cout << nums[nums.size() - 2] << signs[i] << nums[nums.size() - 1] << " = " << temp << endl;
-
-                
+                temp = operation(nums[nums.size() - 2], signs[i], nums[nums.size() - 1]);                
                 nums.pop_back();
                 nums.pop_back();
                 signs.pop_back();                
                 nums.push_back(temp);
-                
             }      
         }
     }
