@@ -127,7 +127,7 @@ int main()
                 nums.push_back(temp);
                 break;
             }
-            else //if (signs[i - 1] != '*' && signs[i - 1] != '/')
+            else 
             {
                 temp = operation(nums[nums.size() - 2], signs[i], nums[nums.size() - 1]);                
                 nums.pop_back();
