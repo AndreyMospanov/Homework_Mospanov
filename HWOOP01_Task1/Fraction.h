@@ -39,6 +39,10 @@ public:
 	{
 		denominator = setter;
 	}
+	void Print()
+	{
+		cout << numerator << "/" << denominator << endl;
+	}
 
 	Fraction Summand(Fraction s2);
 	Fraction Subtraction(Fraction s2);

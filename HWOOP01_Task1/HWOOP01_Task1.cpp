@@ -9,25 +9,30 @@ void Action(int choice, Fraction f1, Fraction f2)
     {
     case 1:
     {
-        result = f1.Summand(f2);        
+        result = f1.Summand(f2); 
+        break;
     }
     case 2:
     {
         result = f1.Subtraction(f2);
+        break;
     }
     case 3:
     {
         result =  f1.Multiply(f2);
+        break;
     }
     case 4:
     {
         result = f1.Division(f2);
+        break;
     }
     default:
         break;
     }
 
-    cout << "result: " << result.getNumerator() << "/" << result.getDenominator() << endl;
+    cout << "result: ";
+    result.Print();
 }
 
 int main()
@@ -41,21 +46,21 @@ int main()
         cout << "Fraction 1:\n numerator: ";
         cin >> temp;
         f1.setNumerator(temp);
-        cout << "\ndenominator: ";
+        cout << "denominator: ";
         cin >> temp;
         f1.setDenominator(temp);
 
         cout << "Fraction 2:\n numerator: ";
         cin >> temp;
         f2.setNumerator(temp);
-        cout << "\ndenominator: ";
+        cout << "denominator: ";
         cin >> temp;
         f2.setDenominator(temp);
 
         do
         {
             cout << "Choose mathematical action with fractions\n";
-            cout << "1. Summand\n2. Subtraction\n 3. Multiply\n 4. Division\n";
+            cout << "1. Summand\n2. Subtraction\n3. Multiply\n4. Division\n";
             cin >> temp;
             if (temp < 1 || temp > 4)
             {
