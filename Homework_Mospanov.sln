@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30413.136
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CW12 Task1", "Task1\Task1.vcxproj", "{BB978956-AA68-4C74-9B00-0C5D2353A0AA}"
 EndProject
@@ -42,6 +42,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CW100622_Student", "CW100622_Student\CW100622_Student.vcxproj", "{354F272A-8B13-4BD2-967F-A6F6A69F94B6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exam_Arithmetic", "Exam_Arithmetic\Exam_Arithmetic.vcxproj", "{37253996-BDEC-4936-B708-C3639854669B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HWOOP01_Task1", "HWOOP01_Task1\HWOOP01_Task1.vcxproj", "{C683A04E-341E-4A24-87E2-00472189A1E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -211,6 +213,14 @@ Global
 		{37253996-BDEC-4936-B708-C3639854669B}.Release|x64.Build.0 = Release|x64
 		{37253996-BDEC-4936-B708-C3639854669B}.Release|x86.ActiveCfg = Release|Win32
 		{37253996-BDEC-4936-B708-C3639854669B}.Release|x86.Build.0 = Release|Win32
+		{C683A04E-341E-4A24-87E2-00472189A1E3}.Debug|x64.ActiveCfg = Debug|x64
+		{C683A04E-341E-4A24-87E2-00472189A1E3}.Debug|x64.Build.0 = Debug|x64
+		{C683A04E-341E-4A24-87E2-00472189A1E3}.Debug|x86.ActiveCfg = Debug|Win32
+		{C683A04E-341E-4A24-87E2-00472189A1E3}.Debug|x86.Build.0 = Debug|Win32
+		{C683A04E-341E-4A24-87E2-00472189A1E3}.Release|x64.ActiveCfg = Release|x64
+		{C683A04E-341E-4A24-87E2-00472189A1E3}.Release|x64.Build.0 = Release|x64
+		{C683A04E-341E-4A24-87E2-00472189A1E3}.Release|x86.ActiveCfg = Release|Win32
+		{C683A04E-341E-4A24-87E2-00472189A1E3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
