@@ -44,7 +44,7 @@ public:
 		cout << numerator << "/" << denominator << endl;
 	}
 
-	Fraction Summand(Fraction s2);
+	Fraction Sum(Fraction s2);
 	Fraction Subtraction(Fraction s2);
 	Fraction Multiply(Fraction m2);
 	Fraction Division(Fraction d2);

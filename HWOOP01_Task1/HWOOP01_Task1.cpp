@@ -9,7 +9,7 @@ void Action(int choice, Fraction f1, Fraction f2)
     {
     case 1:
     {
-        result = f1.Summand(f2); 
+        result = f1.Sum(f2); 
         break;
     }
     case 2:
@@ -60,7 +60,7 @@ int main()
         do
         {
             cout << "Choose mathematical action with fractions\n";
-            cout << "1. Summand\n2. Subtraction\n3. Multiply\n4. Division\n";
+            cout << "1. Sum\n2. Subtraction\n3. Multiply\n4. Division\n";
             cin >> temp;
             if (temp < 1 || temp > 4)
             {
@@ -74,5 +74,6 @@ int main()
         cin >> temp;
         if (temp != 1)
             break;
+        system("cls");
     }
 }

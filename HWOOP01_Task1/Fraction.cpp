@@ -1,7 +1,8 @@
 #include "Fraction.h"
 
-Fraction Fraction::Summand( Fraction s2)
+Fraction Fraction::Sum( Fraction s2)
 {
+	Fraction temp;
 	if (denominator == s2.denominator)
 		return Fraction(numerator + s2.numerator, denominator);
 	else
@@ -9,11 +10,12 @@ Fraction Fraction::Summand( Fraction s2)
 		cout << "dbg ";
 		Print();
 		s2.Print();
-
+		
+		temp.denominator = denominator;
 		numerator *= s2.denominator;
 		denominator *= s2.denominator;
-		s2.numerator *= denominator;
-		s2.denominator *= denominator;
+		s2.numerator *= temp.denominator;
+		s2.denominator *= temp.denominator;
 
 		cout << "dbg result ";
 		Print();
@@ -25,7 +27,7 @@ Fraction Fraction::Summand( Fraction s2)
 Fraction Fraction::Subtraction(Fraction s2)
 {
 	s2.numerator *= -1;
-	return this->Summand(s2);
+	return this->Sum(s2);
 }
 Fraction Fraction::Multiply(Fraction m2)
 {
