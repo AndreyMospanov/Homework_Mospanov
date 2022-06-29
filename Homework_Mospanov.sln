@@ -45,6 +45,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Exam_Arithmetic", "Exam_Ari
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HWOOP01_Task1", "HWOOP01_Task1\HWOOP01_Task1.vcxproj", "{C683A04E-341E-4A24-87E2-00472189A1E3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HWOOP02_Task1", "HWOOP02_Task1\HWOOP02_Task1.vcxproj", "{A98EE912-198E-4926-8C64-BC76201EB91F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -221,6 +223,14 @@ Global
 		{C683A04E-341E-4A24-87E2-00472189A1E3}.Release|x64.Build.0 = Release|x64
 		{C683A04E-341E-4A24-87E2-00472189A1E3}.Release|x86.ActiveCfg = Release|Win32
 		{C683A04E-341E-4A24-87E2-00472189A1E3}.Release|x86.Build.0 = Release|Win32
+		{A98EE912-198E-4926-8C64-BC76201EB91F}.Debug|x64.ActiveCfg = Debug|x64
+		{A98EE912-198E-4926-8C64-BC76201EB91F}.Debug|x64.Build.0 = Debug|x64
+		{A98EE912-198E-4926-8C64-BC76201EB91F}.Debug|x86.ActiveCfg = Debug|Win32
+		{A98EE912-198E-4926-8C64-BC76201EB91F}.Debug|x86.Build.0 = Debug|Win32
+		{A98EE912-198E-4926-8C64-BC76201EB91F}.Release|x64.ActiveCfg = Release|x64
+		{A98EE912-198E-4926-8C64-BC76201EB91F}.Release|x64.Build.0 = Release|x64
+		{A98EE912-198E-4926-8C64-BC76201EB91F}.Release|x86.ActiveCfg = Release|Win32
+		{A98EE912-198E-4926-8C64-BC76201EB91F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
