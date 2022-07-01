@@ -27,7 +27,7 @@ class Contact
 public:
 
 	Contact(const char* _name, const char* pH, const char* pW, const char* pM, string _info) : name{ _name ? new char[strlen(_name) + 1] : nullptr}, phoneHome{pH ? new char[strlen(pH) + 1] : nullptr}, phoneWork{pW ? new char[strlen(pW) + 1] : nullptr}, phoneMobile{pM ? new char[strlen(pM) + 1] : nullptr}, info{_info}
-	{		
+	{
 		assign(_name, name);
 		assign(pH, phoneHome);
 		assign(pW, phoneWork);
@@ -44,24 +44,52 @@ public:
 
 	~Contact()
 	{
-		cout << "Contact " << name << "deleted.\n";
-		deleteData(name);
+		cout << "Contact "  << " delete start.\n";
+		if(name)
+			delete[] name;
+		cout << "deleted name ";
+		if (phoneHome)
+			delete[] phoneHome;
+		if (phoneWork)
+			delete[] phoneWork;
+		if (phoneMobile)
+			delete[] phoneMobile;
+		/*deleteData(name);		
+		cout << "name ";
 		deleteData(phoneHome);
+		cout << "ph ";
 		deleteData(phoneWork);
+		cout << "pw ";
 		deleteData(phoneMobile);
+		cout << "pm ";
+		cout << "Contact " << " deleted end.\n";*/
+	}
+	string Name()
+	{
+		return name;
 	}
 
 	void Print()
 	{
 		cout << "Name: " << name << endl;
-		cout << "Home: " << phoneHome << endl;
-		cout << "Work: " << phoneWork << endl;
-		cout << "Mobile: " << phoneMobile << endl;
+		if (phoneHome)
+		{
+			cout << "Home: " << phoneHome << endl;
+		}
+		if (phoneWork)
+		{
+			cout << "Work: " << phoneWork << endl;
+		}
+		if (phoneMobile)
+		{
+			cout << "Mobile: " << phoneMobile << endl;
+		}	
+		
 		cout << "additional information: " << info << endl;
-		system("pause");
-		system("cls");
+		
 	}
 
 	void Edit();
+	void AddContact();
 };
 
