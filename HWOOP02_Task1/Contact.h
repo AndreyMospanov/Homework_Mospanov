@@ -45,9 +45,12 @@ public:
 	~Contact()
 	{
 		cout << "Contact "  << " delete start.\n";
-		if(name)
+		if (name)
+		{			
 			delete[] name;
-		cout << "deleted name ";
+			cout << "deleted name ";
+		}
+
 		if (phoneHome)
 			delete[] phoneHome;
 		if (phoneWork)

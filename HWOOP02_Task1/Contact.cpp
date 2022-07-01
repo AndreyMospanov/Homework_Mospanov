@@ -84,16 +84,28 @@ void Contact::AddContact()
 	name = new char[strlen(_name) + 1];
 	strcpy_s(name, strlen(_name) + 1, _name);	
 
+	if (phoneHome)
+	{
+		delete[] phoneHome;
+	}
 	cout << "Enter phone at home: ";
 	cin >> _pH;
 	phoneHome = new char[strlen(_pH) + 1];	
 	strcpy_s(phoneHome, strlen(_pH) + 1, _pH);	
 
+	if (phoneWork)
+	{
+		delete[] phoneWork;
+	}
 	cout << "Enter phone at work: ";
 	cin >> _pW;
 	phoneWork = new char[strlen(_pW) + 1];
 	strcpy_s(phoneWork, strlen(_pW) + 1, _pW);
 	
+	if (phoneMobile)
+	{
+		delete[] phoneMobile;
+	}
 	cout << "Enter mobile phone: ";
 	cin >> _pM;
 	phoneMobile = new char[strlen(_pM) + 1];
