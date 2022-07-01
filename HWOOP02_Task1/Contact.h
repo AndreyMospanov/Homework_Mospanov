@@ -44,24 +44,52 @@ public:
 
 	~Contact()
 	{
-		cout << "Contact " << name << "deleted.\n";
-		deleteData(name);
+		cout << "Contact "  << " delete start.\n";
+		if(name)
+			delete[] name;
+		cout << "deleted name ";
+		if (phoneHome)
+			delete[] phoneHome;
+		if (phoneWork)
+			delete[] phoneWork;
+		if (phoneMobile)
+			delete[] phoneMobile;
+		/*deleteData(name);		
+		cout << "name ";
 		deleteData(phoneHome);
+		cout << "ph ";
 		deleteData(phoneWork);
+		cout << "pw ";
 		deleteData(phoneMobile);
+		cout << "pm ";
+		cout << "Contact " << " deleted end.\n";*/
+	}
+	string Name()
+	{
+		return name;
 	}
 
 	void Print()
 	{
 		cout << "Name: " << name << endl;
-		cout << "Home: " << phoneHome << endl;
-		cout << "Work: " << phoneWork << endl;
-		cout << "Mobile: " << phoneMobile << endl;
+		if (phoneHome)
+		{
+			cout << "Home: " << phoneHome << endl;
+		}
+		if (phoneWork)
+		{
+			cout << "Work: " << phoneWork << endl;
+		}
+		if (phoneMobile)
+		{
+			cout << "Mobile: " << phoneMobile << endl;
+		}	
+		
 		cout << "additional information: " << info << endl;
-		system("pause");
-		system("cls");
+		
 	}
 
 	void Edit();
+	void AddContact();
 };
 
