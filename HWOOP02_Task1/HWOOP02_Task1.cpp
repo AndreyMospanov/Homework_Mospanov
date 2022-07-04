@@ -29,11 +29,11 @@ void FindContact(string &toFind, vector <Contact>& phoneBook)
 		{
 			phoneBook[i].Print();
 			finded = true;
-		}
-		if(!finded)
-		{
-			cout << "Nothing found\n";
-		}				
+		}					
+	}
+	if (!finded)
+	{
+		cout << "Nothing found\n";
 	}
 }
 int main()

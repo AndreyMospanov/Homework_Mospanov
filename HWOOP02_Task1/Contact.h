@@ -42,7 +42,7 @@ public:
 
 	Contact() :Contact("noname", nullptr, nullptr, nullptr, "") {}
 
-	~Contact()
+	/*~Contact()
 	{
 		cout << "Contact "  << " delete start.\n";
 		if (name)
@@ -56,17 +56,8 @@ public:
 		if (phoneWork)
 			delete[] phoneWork;
 		if (phoneMobile)
-			delete[] phoneMobile;
-		/*deleteData(name);		
-		cout << "name ";
-		deleteData(phoneHome);
-		cout << "ph ";
-		deleteData(phoneWork);
-		cout << "pw ";
-		deleteData(phoneMobile);
-		cout << "pm ";
-		cout << "Contact " << " deleted end.\n";*/
-	}
+			delete[] phoneMobile;		
+	}*/
 	string Name()
 	{
 		return name;
