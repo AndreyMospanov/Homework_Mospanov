@@ -70,6 +70,10 @@ int main()
 				cout << "Choose number of contact to delete\n press 0 to exit\n";
 				ShowContacts(phoneBook);
 				cin >> toDelete;
+				if (toDelete == 0)
+				{
+					break;
+				}
 				if (toDelete > phoneBook.size() + 1)
 					cout << "number is incorrect\n";
 				else
