@@ -45,13 +45,13 @@ public:
 	/*~Contact()
 	{
 		cout << "Contact "  << " delete start.\n";
-		if (name)
+		if (name != nullptr)
 		{			
 			delete[] name;
 			cout << "deleted name ";
 		}
 
-		if (phoneHome)
+		if (phoneHome != nullptr)
 			delete[] phoneHome;
 		if (phoneWork)
 			delete[] phoneWork;

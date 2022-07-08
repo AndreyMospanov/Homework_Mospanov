@@ -57,7 +57,7 @@ int main()
 		{
 			Contact temp;
 			cout << "Add contact\n";
-			phoneBook.push_back(temp);			
+			phoneBook.emplace_back(temp);			
 			phoneBook[phoneBook.size() - 1].AddContact();
 			phoneBook[phoneBook.size() - 1].Print();
 			break;
@@ -85,14 +85,15 @@ int main()
 		case 3:
 		{
 			string toFind;
+			int findChoice;
 			do
 			{
 				cout << "type name of contact, you want to find\n";
 				cin >> toFind;
 				FindContact(toFind, phoneBook);
 				cout << "continue? 0 - no, any number - yes\n";
-				cin >> choice;
-			} while (choice != 0);
+				cin >> findChoice;
+			} while (findChoice != 0);
 
 			break;
 		}
