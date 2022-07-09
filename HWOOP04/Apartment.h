@@ -33,26 +33,33 @@ public:
 		}
 	}
 
+	void SetNumber(int num)
+	{
+		number = num;
+	}
+
 	void initHabitants(Person* hab, int size)
 	{
 		if (habitants != nullptr)
 		{
 			delete[] habitants;
 		}
+		this->size = size;
 		habitants = new Person[size];
 		for (int i = 0; i < size; i++)
 		{
-			habitants[i] = hab[i];
+			habitants[i] = hab[i];			
 		}
 	}
 
 	void Print()
 	{
-		cout << "flat number " << number << ":\n";
+		cout << "Квартира № " << number << ":\n";
 		for (int i = 0; i < size; i++)
-		{
+		{			
 			habitants[i].Print();
 		}
+		cout << endl;
 	}
 };
 

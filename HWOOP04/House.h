@@ -34,12 +34,13 @@ public:
 		}
 	}
 
-	void addApartments( Apartment* aps)
+	void addApartments(Apartment* aps, int size)
 	{
 		if (apartments != nullptr)
 		{
 			delete[] apartments;
 		}
+		this->size = size;
 		apartments = new Apartment[size];
 		if (aps != nullptr)
 		{
@@ -47,8 +48,22 @@ public:
 			{
 				apartments[i] = aps[i];
 			}
-		}	
+		}
+	}
 
+	void SetAddress(string address)
+	{
+		this->address = address;
+	}
+
+	void Print()
+	{
+		cout << "Дом " << address << ":\n";
+		for (int i = 0; i < size; i++)
+		{
+			apartments[i].Print();
+		}
+		cout <<"-------------------------" << endl;
 	}
 };
 

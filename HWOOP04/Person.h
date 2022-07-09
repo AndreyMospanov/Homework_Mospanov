@@ -18,7 +18,13 @@ public:
 		setFthrName(fathersName);
 		setInfo(info);
 	}
-	Person(): Person(nullptr, nullptr, nullptr, ""){}
+	Person()
+	{
+		lName = nullptr;
+		fName = nullptr;
+		fthrName = nullptr;
+		info = "";
+	}
 
 	~Person()
 	{
@@ -44,7 +50,7 @@ public:
 	void setInfo(string data);
 	void Print()
 	{
-		cout << lName << " " << fName << " " << fthrName << " " << info << endl;
+		cout << lName << " " << fName << " " << fthrName << ": " << info << endl;
 	}
 
 	const char* LName()
