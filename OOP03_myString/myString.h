@@ -28,26 +28,21 @@ public:
 
 	myString(const char* input, int size) : data{ input ? new char[strlen(input) + 1] : nullptr }, size{ size }
 	{
-		strcpy_s(data, strlen(input) + 1, input);
-		msCount++;
+		if (data != nullptr)
+		{
+			strcpy_s(data, strlen(input) + 1, input);
+			msCount++;
+		}		
 	}
 
 	myString(const char* input) :myString(input, strlen(input)) {}
 	
 	myString():myString(new char[80], 80){}
 
-	myString(const myString& orig)
-	{
-		if (data)
-		{
-			delete[] data;
-		}
-		data = new char[orig.size + 1];
-		strcpy_s(orig.data, orig.size + 1, data);
-		size = orig.size;
-	}
+	myString(const myString& orig):myString(orig.data, orig.size) {}
+	
 
-	myString(myString&& orig) : data{ orig.data }, size{ orig.size }
+	myString(myString&& orig) noexcept : data{ orig.data }, size{ orig.size }
 	{
 		orig.data = nullptr;
 		orig.size = 0;
