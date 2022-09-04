@@ -77,6 +77,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HWOOP18_Task2", "HWOOP18_Ta
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HWOOP6", "HWOOP6\HWOOP6.vcxproj", "{0EF06E0B-7695-4817-84A5-1E8ACBBE0882}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HWOOP20", "HWOOP20\HWOOP20.vcxproj", "{63226805-FCFB-4CC1-B5E7-579163855FE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -381,6 +383,14 @@ Global
 		{0EF06E0B-7695-4817-84A5-1E8ACBBE0882}.Release|x64.Build.0 = Release|x64
 		{0EF06E0B-7695-4817-84A5-1E8ACBBE0882}.Release|x86.ActiveCfg = Release|Win32
 		{0EF06E0B-7695-4817-84A5-1E8ACBBE0882}.Release|x86.Build.0 = Release|Win32
+		{63226805-FCFB-4CC1-B5E7-579163855FE4}.Debug|x64.ActiveCfg = Debug|x64
+		{63226805-FCFB-4CC1-B5E7-579163855FE4}.Debug|x64.Build.0 = Debug|x64
+		{63226805-FCFB-4CC1-B5E7-579163855FE4}.Debug|x86.ActiveCfg = Debug|Win32
+		{63226805-FCFB-4CC1-B5E7-579163855FE4}.Debug|x86.Build.0 = Debug|Win32
+		{63226805-FCFB-4CC1-B5E7-579163855FE4}.Release|x64.ActiveCfg = Release|x64
+		{63226805-FCFB-4CC1-B5E7-579163855FE4}.Release|x64.Build.0 = Release|x64
+		{63226805-FCFB-4CC1-B5E7-579163855FE4}.Release|x86.ActiveCfg = Release|Win32
+		{63226805-FCFB-4CC1-B5E7-579163855FE4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
