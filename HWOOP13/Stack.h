@@ -1,8 +1,10 @@
 #pragma once
 #include <iostream>
 #include <string>
-using namespace std;
 
+/* Ћабораторна€ работа, «адание 2
+ѕерепишите класс stack одного из предыдущих домашних заданий таким образом, чтобы генерировать исключени€ дл€ такого количества условий, какое вы считаете приемлемым.
+Ќапример, невозможность выделить нужное количество пам€ти, переполнение стека и т.д*/
 class Stack
 {
 	enum {Empty = -1, Full = 20};
@@ -27,27 +29,43 @@ public:
 
 	void Push(char c)
 	{
-		if (!isFull())
-		{
-			st[++top] = c;
-		}
-		else
-		{
-			cout << "stack overflow\n";
-			exit(1);
-		}
+        std::string stackOverflow = "stack overflow";
+        try
+        {
+            if (!isFull())
+            {
+                st[++top] = c;
+            }
+            else
+            {
+                throw stackOverflow;                
+            }
+        }
+        catch (std::string message)
+        {
+            std::cerr << message;
+        }
+		
 	}
 
 	char Pop()
 	{
-		if (!isEmpty())
-		{
-			return st[top--];
-		}
-		else
-		{
-			return 0;
-		}
+        try
+        {
+            if (!isEmpty())
+            {
+                return st[top--];
+            }
+            else
+            {
+                throw st[top];
+            }
+        }
+        catch (char)
+        {
+            std::cerr << "Can't pop element! Stack is empty\n";
+            return 0;
+        }
 	}
 
 	char Peek()

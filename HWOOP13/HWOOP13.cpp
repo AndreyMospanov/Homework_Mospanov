@@ -77,6 +77,7 @@ void CheckCorrect(string input)
 
 int main()
 {
+    setlocale(0, "");
     string input1 = "({x - y - z}*[x + 2y] - (z + 4x));";
     string input2 = "([x - y - z}*[x + 2y) - {z + 4x)].";
     CheckCorrect(input1);

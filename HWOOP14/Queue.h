@@ -1,36 +1,52 @@
 #pragma once
 #include<iostream>
 #include <time.h>
-using namespace std;
-                            
+
+/*Задание 1.
+Добавьте в класс двусвязного списка механизм обработки исключений. На ваш выбор генерируйте исключения 
+в случае ошибок. Например, нехватка памяти, попытка 
+удаления из пустого списка и т.д.*/
+                     
 class Queue
 {
     int* wait;
-    int maxLength;
+    int capacity;
     int length;
 
 public:
     Queue(int m)
     {
-        maxLength = m;
-        wait = new int[maxLength];
+        capacity = m;
+        wait = new int[capacity];
         length = 0;
     }
-
-    /*Queue(int m, int n)//для создания случайно заполненного автобуса
-    {
-        maxLength = n;
-        length = m + rand() % n ;
-        wait = new int[maxLength];
-    }*/
-
+    
     ~Queue()
     {
+        try
+        {
+            if (wait == nullptr)
+                throw wait;
+        }
+        catch (int*)
+        {
+            std::cerr << "Delete error. Wait does not exist\n";
+        }
         delete[] wait;
     }
 
     void Clear()
     {
+        try
+        {
+            if (length == 0)
+                throw length;
+        }
+        catch (int)
+        {
+            std::cerr << "Queue is clear already\n";
+        }
+
         length = 0;
     }
 
@@ -39,7 +55,7 @@ public:
         if (!endOfTheLine)
         {
             srand(time(0));
-            length = rand() % maxLength;
+            length = rand() % capacity;
         }
         else
         {
@@ -54,7 +70,7 @@ public:
 
     bool isFull()
     {
-        return length == maxLength;
+        return length == capacity;
     }
 
     int Length()
@@ -72,8 +88,11 @@ public:
 
     int Extract()
     {
-        if (!isEmpty())
+        try
         {
+            if (length == 0)
+                throw length;
+
             int temp = wait[0];
             for (int i = 1; i < length; i++)
             {
@@ -82,8 +101,11 @@ public:
             length--;
             return temp;
         }
-        else
+        catch (int)
+        {
+            std::cerr << "queue is empty\n";
             return -1;
+        }
     }
 
     int NextToOut()
