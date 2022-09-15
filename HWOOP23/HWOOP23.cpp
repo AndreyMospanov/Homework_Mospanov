@@ -7,7 +7,10 @@
 в пространствах имен. Продумайте правильную структуру 
 созданных пространств. Используя механизм пространств 
 напишите код по тестированию полученного решения*/
-#include"Header.h"
+
+//#include"Header.h"
+#include "Komplex.h"
+#include "Matrix.h"
 using namespace MyMath;
 
 int main()
